@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
     <h1>Registro</h1>
+    <form action="javascript:void(0);" method="(POST)" onsubmit="app.Add()" >  
+       <div class="form-group row">
+           <div class="col-xs-4">
+            <input type="text" class="form-control" id="add-name" placeholder="nueva venta" >
+            
+           </div>
+           <input class="btn btn-secondary" type="submit" value="add">
+       </div>
+    </form>
+
+    <p id="counter"></p>
+
+     <table>
+         <tr>
+             <th>venta</th>
+         </tr>
+         <tbody id="ventas"></tbody>
+     </table>
+       
+
+       <script src="ventas.js"></script>
+         
+    
 </body>
 </html>
