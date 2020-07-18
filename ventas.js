@@ -20,8 +20,8 @@ var app = new function(){
         for(i = 0; i < this.ventas.length; i++){
             data += '<tr>';
             data += '<td>' + this.ventas[i] + '</td>';
-            data += '<td><button onclick="app.edit(' + i + ')">Edit</button><td>';
-            data += '<td><button onclick="app.delete(' + i + ')">delete</button><td>';
+            data += '<td><button onclick="app.Edit(' + i + ')">Edit</button><td>';
+            data += '<td><button onclick="app.Delete(' + i + ')">delete</button><td>';
             data += '</tr>';
         }
     }
@@ -39,4 +39,38 @@ var app = new function(){
             this.Fetchall();
         }
     };
+
+    this.Edit = function(item){
+     var el = document.getElementById('edit-name');
+
+     el.value = this.ventas[item];
+
+     document.getElementById('spp').style.display = 'block';
+     self = this;
+     document.getElementById('saveEdit').onsubmit = function(){
+         var ventaEdit = el.value;
+         if(ventaEdit){
+             self.ventas.splice(item, 1, ventaEdit.trim());
+             self.Fetchall();
+             CloseInput();
+         }
+      }
+    };
+
+    this.Delete = function (item) {
+        this.ventas.splice(item, 1);
+        this.Fetchall();
+        if(item){
+            this.ventas.splice(item, 1);
+        this.Fetchall();
+        }
+    
+    };
+
 }
+
+app.Fetchall();
+    function CloseInput(){
+        document.getElementById('spp').style.display = 'none';
+    }
+    
